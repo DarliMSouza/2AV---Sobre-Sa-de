@@ -1,0 +1,179 @@
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font:bold;
+    padding:0;
+    margin:0;
+    color:rgb(103, 103, 127) 
+}
+header {
+    background-color: #b7e4f3;
+    padding: 10px;
+}
+
+a:link, a:visited {
+    background-color: rgb(68, 242, 202)
+    color: white;
+    padding: 8px 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  a:hover, a:active {
+    background-color:tomato;
+  }
+{
+font-size:2 px;  
+font-style:italic;
+font-weight:10 px;  
+ 
+}
+.about_h1 {
+    background-color: rgb(73, 183, 146);
+    color:grey;
+    border: 2px solid rgb(250, 111, 86));
+    padding: 2px;
+}
+
+h1
+img {
+    width: 100%;
+    height: auto;
+  }
+h2
+img {
+  width: 15%; 
+}
+<link rel="stylesheet" href="style.css">
+body{
+  background-color: #2D2323;
+  }
+  p {color: #1e1e1e;
+  }
+
+  body {
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #f9dcf5;
+    color: #F6F6F6;
+    }
+    main {
+      display: flex; /* or inline-flex */
+      }
+      main{
+        display: flex; /* or inline-flex */
+        flex-direction: column;
+        align-items: center;
+        } 
+
+        section {
+          display: flex;
+
+          }   
+          h2
+          img {
+            width: 10%; 
+          }
+        <main class="banner">
+<h1 class="banner_titulo">CLIQUE AQUI</h1>
+<div class="banner_observacao">
+.banner_observacao{
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+
+.banner_titulo{
+font-size: 77px;
+}
+/* latin */
+@font-face {
+  font-family: 'Acme';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/acme/v25/RrQfboBx-C5_XxrBbg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.banner_titulo{
+  font-size: 77px;
+  font-family: 'Acme', sans-serif;
+  }
+  a{
+    background-color: #4ffebe;
+    width: 230px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: 20px;
+    padding: 40px 0;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #FFFFFF;
+  }        
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Responsivo com Grid</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+  
+      header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        color: white;
+      }
+  
+      nav {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        background-color: #555;
+        overflow: hidden;
+      }
+  
+      nav a {
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+      }
+  
+      main {
+        padding: 20px;
+      }
+  
+      footer {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+  
+      /* Media query para telas menores */
+      @media screen and (max-width: 600px) {
+        nav {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+  
+        nav a {
+          display: block;
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    </style>
+  </head>
+  </body>
+  </html>
+  
+

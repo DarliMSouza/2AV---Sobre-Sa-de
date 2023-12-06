@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    section {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #feb4b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .error-message {
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <h1>Login</h1>
+
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <div class="error-message" id="emailError"></div>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required>
+      <div class="error-message" id="senhaError"></div>
+
+      <button type="button" onclick="realizarLogin()">Entrar</button>
+    </form>
+  </section>
+
+  <script>
+    function realizarLogin() {
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      if (!email) {
+        document.getElementById('emailError').textContent = 'Email é obrigatório';
+        return;
+      }
+
+      if (!senha) {
+        document.getElementById('senhaError').textContent = 'Senha é obrigatória';
+        return;
+      }
+
+      
+      if (email === 'usuario@example.com' && senha === 'senha123') {
+        alert('Login realizado com sucesso!');
+      } else {
+        alert('Credenciais inválidas. Tente novamente.');
+      }
+    }
+  </script>
+
+  <section>
+    <button onclick="voltar()">Voltar</button>
+  </section>
+
+  <script>
+    function voltar() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>

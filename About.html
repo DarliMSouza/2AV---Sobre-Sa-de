@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuários</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #baf3d8;
+      padding: 15px;
+      text-align: center;
+      color: white;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #f0c0c0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #006450;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cadastro de Usuários</h1>
+  </header>
+
+  <section>
+    <form id="cadastroForm">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="Nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required>
+
+      <button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
+    </form>
+
+    <h2>Usuários Cadastrados</h2>
+    <ul id="listaUsuarios"></ul>
+
+    <button onclick="abrirListagem()">Abrir Listagem</button>
+    <button onclick="voltar()">Voltar</button>
+  </section>
+
+  <script>
+    let usuarios = [];
+
+    // Carregar usuários do localStorage ao iniciar
+    if (localStorage.getItem('usuarios')) {
+      usuarios = JSON.parse(localStorage.getItem('usuarios'));
+      atualizarListaUsuarios();
+    }
+
+    function cadastrarUsuario() {
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+      
+      const novoUsuario = {
+        nome: nome,
+        email: email,
+        senha: senha,
+      };
+
+      usuarios.push(novoUsuario);
+
+      // Salvar usuários no localStorage
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+      document.getElementById('cadastroForm').reset();
+      atualizarListaUsuarios();
+    }
+
+    function atualizarListaUsuarios() {
+      const listaUsuarios = document.getElementById('listaUsuarios');
+      listaUsuarios.innerHTML = '';
+
+      usuarios.forEach(usuario => {
+        const itemLista = document.createElement('li');
+        itemLista.textContent = `Nome: ${usuario.nome}, Email: ${usuario.email}`;
+        listaUsuarios.appendChild(itemLista);
+      });
+    }
+
+    function abrirListagem() {
+      // Criar uma string HTML com a listagem
+      const listaHtml = usuarios.map(usuario => {
+        return `<li>Nome: ${usuario.nome}, Email: ${usuario.email}</li>`;
+      }).join('');
+
+      // Abrir uma nova aba ou janela com a listagem
+      const novaAba = window.open('', '_blank');
+      novaAba.document.write(`
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Listagem de Usuários</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 20px;
+            }
+          </style>
+        </head>
+        <body>
+          <h2>Listagem de Usuários</h2>
+          <ul>${listaHtml}</ul>
+        </body>
+        </html>
+      `);
+    }
+
+    function voltar() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
+
